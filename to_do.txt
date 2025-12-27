@@ -34,6 +34,6 @@ rotate b	OK
 rotate_both	OK
 
 Reverse rotate :
-reverse rotate a
-reverse rotate b
-reverse rotate both
+reverse rotate a OK
+reverse rotate b OK
+reverse rotate both OK

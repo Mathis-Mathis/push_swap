@@ -6,7 +6,7 @@
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 15:11:56 by mmousli           #+#    #+#             */
-/*   Updated: 2025/12/27 15:23:37 by mmousli          ###   ########.fr       */
+/*   Updated: 2025/12/27 16:20:17 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,14 @@ int main(int argc, char **argv)
 	// push_b(&stack_a, &stack_b);
 
 	// rotate
-	rotate_a(&stack_a);
+	// rotate_a(&stack_a);
 	// rotate_b(&stack_b);
 	//rotate_both(&stack_a, &stack_b);
+
+	// reverse rotate
+	reverse_rotate_a(&stack_a);
+	// reverse_rotate_b(&stack_b);
+	// reverse_rotate_both(&stack_a, &stack_b);
 
 
 

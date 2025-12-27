@@ -6,7 +6,7 @@
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 18:56:24 by mmousli           #+#    #+#             */
-/*   Updated: 2025/12/27 15:14:00 by mmousli          ###   ########.fr       */
+/*   Updated: 2025/12/27 16:20:01 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	push_b(t_stack **stack_a, t_stack **stack_b);
 void	rotate_a(t_stack **stack_a);
 void	rotate_b(t_stack **stack_b);
 void	rotate_both(t_stack **stack_a, t_stack **stack_b);
+
+void	reverse_rotate_a(t_stack **stack_a);
 
 void	print_error(void);
 
