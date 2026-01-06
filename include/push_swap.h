@@ -6,7 +6,7 @@
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 14:30:17 by mmousli           #+#    #+#             */
-/*   Updated: 2026/01/06 16:19:06 by mmousli          ###   ########.fr       */
+/*   Updated: 2026/01/06 16:35:50 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -28,8 +29,9 @@ void	print_error(void);
 
 t_stack	*create_node(int value);
 
-void	*add_front(t_stack **stack, t_stack *new);
-void	*add_back(t_stack **stack, t_stack *new);
-void	*free_stack(t_stack **stack);
+void	add_front(t_stack **stack, t_stack *new);
+void	add_back(t_stack **stack, t_stack *new);
+void	free_stack(t_stack **stack);
+void	print_stack(t_stack *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:51:07 by mmousli           #+#    #+#             */
-/*   Updated: 2026/01/06 16:20:01 by mmousli          ###   ########.fr       */
+/*   Updated: 2026/01/06 16:38:19 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stack	*create_node(int value)
 	return (stack);
 }
 
-void	*add_front(t_stack **stack, t_stack *new)
+void	add_front(t_stack **stack, t_stack *new)
 {
 	if (!stack || !new)
 		return ;
@@ -37,7 +37,7 @@ void	*add_front(t_stack **stack, t_stack *new)
 	*stack = new;
 }
 
-void	*add_back(t_stack **stack, t_stack *new)
+void	add_back(t_stack **stack, t_stack *new)
 {
 	t_stack	*last;
 
@@ -56,7 +56,7 @@ void	*add_back(t_stack **stack, t_stack *new)
 
 }
 
-void	*free_stack(t_stack **stack)
+void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
@@ -68,4 +68,15 @@ void	*free_stack(t_stack **stack)
 		free(*stack);
 		*stack = tmp;
 	}
+}
+
+
+//a supprimer plus tard car printf utilise
+void	print_stack(t_stack *stack)
+{
+		while (stack)
+		{
+			printf("%d\n", stack->value);
+			stack = stack->next;
+		}
 }
