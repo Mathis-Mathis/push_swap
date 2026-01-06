@@ -6,7 +6,7 @@
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:51:07 by mmousli           #+#    #+#             */
-/*   Updated: 2026/01/06 16:17:16 by mmousli          ###   ########.fr       */
+/*   Updated: 2026/01/06 16:20:01 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,16 @@ void	*add_back(t_stack **stack, t_stack *new)
 
 }
 
-void	*free_stack()
+void	*free_stack(t_stack **stack)
 {
+	t_stack	*tmp;
 
+	if (!stack)
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
 }
