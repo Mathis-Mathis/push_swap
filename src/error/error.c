@@ -6,11 +6,11 @@
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 14:33:37 by mmousli           #+#    #+#             */
-/*   Updated: 2026/01/06 14:35:39 by mmousli          ###   ########.fr       */
+/*   Updated: 2026/01/06 15:23:15 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../include/push_swap.h"
 
 void	print_error()
 {
