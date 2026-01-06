@@ -6,24 +6,30 @@
 #    By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 15:35:02 by mmousli           #+#    #+#              #
-#    Updated: 2026/01/06 15:35:03 by mmousli          ###   ########.fr        #
+#    Updated: 2026/01/06 16:06:54 by mmousli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME		= push_swap
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-INC = -Iinclude
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror
+INC 		= -Iinclude
 
-SRC_DIR = src
-BUILD_DIR = build
+SRC_DIR 	= src
+BUILD_DIR 	= build
+
+# **************************************************************************** #
 
 SRCS = \
 	$(SRC_DIR)/push_swap.c \
-	$(SRC_DIR)/error/error.c
+	$(SRC_DIR)/error/error.c \
+	$(SRC_DIR)/node/node.c
+
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
+
+# **************************************************************************** #
 
 all: $(NAME)
 

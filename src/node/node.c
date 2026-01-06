@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 14:30:17 by mmousli           #+#    #+#             */
-/*   Updated: 2026/01/06 16:03:44 by mmousli          ###   ########.fr       */
+/*   Created: 2026/01/06 15:51:07 by mmousli           #+#    #+#             */
+/*   Updated: 2026/01/06 16:03:40 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_stack
+t_stack	*create_node(int value)
 {
-	int				value;
-	//int				index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
+	t_stack	*stack;
 
-void	print_error(void);
-
-t_stack	*create_node(int value);
-
-#endif
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->value = value;
+	// stack->index = -1;
+	stack->prev = NULL;
+	stack->next = NULL;
+	return (stack);
+}
