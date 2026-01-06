@@ -13,8 +13,8 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
-INC = Isrc/include
+CFLAGS = -Wall -Wextra -Werror
+INC = -Iinclude
 
 SRC_DIR = src
 BUILD_DIR = build
@@ -30,7 +30,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c src/include/push_swap.h
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c include/push_swap.h
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
