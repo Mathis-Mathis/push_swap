@@ -6,7 +6,7 @@
 #    By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 15:35:02 by mmousli           #+#    #+#              #
-#    Updated: 2026/01/06 16:06:54 by mmousli          ###   ########.fr        #
+#    Updated: 2026/01/28 01:28:31 by mmousli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,12 @@ BUILD_DIR 	= build
 SRCS = \
 	$(SRC_DIR)/push_swap.c \
 	$(SRC_DIR)/error/error.c \
-	$(SRC_DIR)/node/node.c
+	$(SRC_DIR)/node/node.c \
+	$(SRC_DIR)/logic/swap.c \
+	$(SRC_DIR)/logic/push.c \
+	$(SRC_DIR)/logic/rotate.c \
+	$(SRC_DIR)/parcing/parcing.c \
+	$(SRC_DIR)/parcing/check.c \
 
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)

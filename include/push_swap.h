@@ -6,32 +6,45 @@
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 14:30:17 by mmousli           #+#    #+#             */
-/*   Updated: 2026/01/06 16:35:50 by mmousli          ###   ########.fr       */
+/*   Updated: 2026/01/28 01:32:49 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-typedef struct s_stack
+typedef struct s_node
 {
-	int				value;
-	//int				index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
+	int	value;
+	struct s_node *next;
+	struct s_node *prev;
+}	t_node;
+
+t_node	*new_node(int value);
+void    add_back(t_node **stack, t_node *new_node);
+void	print_stacks(t_node *a, t_node *b);
+
+
+void	swap_a(t_node **stack_a);
+void	swap_b(t_node **stack_b);
+void	swap_both(t_node **stack_a, t_node **stack_b);
+
+void	push_a(t_node **stack_a, t_node **stack_b);
+void	push_b(t_node **stack_a, t_node **stack_b);
+
+void	rotate_a(t_node **stack_a);
+void	rotate_b(t_node **stack_b);
+void	rotate_both(t_node **stack_a, t_node **stack_b);
+
+
+int check_args(int argc, char **argv);
+void parse_args(t_node **stack_a, int argc, char **argv);
+void	check_duplicate(int argc, char **argv);
 
 void	print_error(void);
-
-t_stack	*create_node(int value);
-
-void	add_front(t_stack **stack, t_stack *new);
-void	add_back(t_stack **stack, t_stack *new);
-void	free_stack(t_stack **stack);
-void	print_stack(t_stack *stack);
 
 #endif
