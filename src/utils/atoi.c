@@ -1,48 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/28 01:27:48 by mmousli           #+#    #+#             */
-/*   Updated: 2026/01/28 01:35:07 by mmousli          ###   ########.fr       */
+/*   Created: 2026/01/28 10:28:56 by mmousli           #+#    #+#             */
+/*   Updated: 2026/01/28 10:31:38 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_args(int argc, char **argv)
+int	ft_atoi(const char *str)
 {
-	(void)argv;
-	if (argc < 2)
-		print_error();
+	long	nb;
+	int		sign;
+	int		i;
 
-	if (argc > 2)
+	nb = 0;
+	sign = 1;
+	i = 0;
+
+	if (str[i] == '+' || str[i] == '-')
 	{
-		check_duplicate(argc, argv);
-		return (0);
-	}
-
-	return (1);
-}
-
-
-void	check_duplicate(int argc, char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i < argc)
-	{
-		j = i + 1;
-		while (j < argc)
-		{
-			if (atoi(argv[i]) == atoi(argv[j]))
-				print_error();
-			j++;
-		}
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
+
+	if (!str[i])
+		print_error();
+
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			print_error();
+
+		nb = nb * 10 + (str[i] - '0');
+
+		if ((nb * sign) > INT_MAX || (nb * sign) < INT_MIN)
+			print_error();
+
+		i++;
+	}
+
+	return ((int)(nb * sign));
 }
+

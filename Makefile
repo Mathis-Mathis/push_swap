@@ -6,7 +6,7 @@
 #    By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 15:35:02 by mmousli           #+#    #+#              #
-#    Updated: 2026/01/28 01:28:31 by mmousli          ###   ########.fr        #
+#    Updated: 2026/01/28 10:40:50 by mmousli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,8 @@ SRCS = \
 	$(SRC_DIR)/logic/rotate.c \
 	$(SRC_DIR)/parcing/parcing.c \
 	$(SRC_DIR)/parcing/check.c \
+	$(SRC_DIR)/utils/atoi.c \
+	$(SRC_DIR)/utils/split.c \
 
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
