@@ -5,68 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 20:50:12 by mmousli           #+#    #+#             */
-/*   Updated: 2026/01/27 21:41:06 by mmousli          ###   ########.fr       */
+/*   Created: 2026/02/24 07:26:42 by mmousli           #+#    #+#             */
+/*   Updated: 2026/02/24 07:27:06 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_node **stack_a)
+void	swap_a(t_node **stack_a, int print)
 {
 	t_node	*first;
 	t_node	*second;
-	int		tmp;
 
-	// Verif
-	if (stack_a == NULL)
-		return;
-	if (*stack_a == NULL)
-		return;
-	if ((*stack_a)->next == NULL)
-		return;
-
-	//recup 1er et 2eme node
+	if (!stack_a || !*stack_a || !(*stack_a)->next)
+		return ;
 	first = *stack_a;
-	second = first->next;
-
-	//var temp pour swap
-	tmp = first->value;
-
-	//swap
-	first->value = second->value;
-	second->value = tmp;
+	second = (*stack_a)->next;
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	*stack_a = second;
+	if (print)
+		write(1, "sa\n", 3);
 }
 
-void	swap_b(t_node **stack_b)
+void	swap_b(t_node **stack_b, int print)
 {
 	t_node	*first;
 	t_node	*second;
-	int		tmp;
 
-	// Verif
-	if (stack_b == NULL)
-		return;
-	if (*stack_b == NULL)
-		return;
-	if ((*stack_b)->next == NULL)
-		return;
-
-	//recup 1er et 2eme node
+	if (!stack_b || !*stack_b || !(*stack_b)->next)
+		return ;
 	first = *stack_b;
-	second = first->next;
-
-	//var temp pour swap
-	tmp = first->value;
-
-	//swap
-	first->value = second->value;
-	second->value = tmp;
+	second = (*stack_b)->next;
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+	*stack_b = second;
+	if (print)
+		write(1, "sb\n", 3);
 }
 
-
-void swap_both(t_node **stack_a, t_node **stack_b)
+void	swap_both(t_node **stack_a, t_node **stack_b)
 {
-	swap_a(stack_a);
-	swap_b(stack_b);
+	swap_a(stack_a, 0);
+	swap_b(stack_b, 0);
+	write(1, "ss\n", 3);
 }

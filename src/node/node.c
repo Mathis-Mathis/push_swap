@@ -5,99 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 15:51:07 by mmousli           #+#    #+#             */
-/*   Updated: 2026/01/27 21:39:06 by mmousli          ###   ########.fr       */
+/*   Created: 2026/02/24 07:12:02 by mmousli           #+#    #+#             */
+/*   Updated: 2026/02/24 08:22:47 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node  *new_node(int value)
-{
-    t_node  *node;
+#include "push_swap.h"
 
-    node = malloc(sizeof(t_node));
-    if (!node)
-        return (NULL);
-    node->value = value;
-    node->prev = NULL;
-    node->next = NULL;
-    return (node);
+t_node	*new_node(int value)
+{
+	t_node	*node;
+
+	node = (t_node *)malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node->value = value;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
 }
 
-void    add_back(t_node **stack, t_node *new_node)
+void	add_back(t_node **head, t_node *node)
 {
-    t_node  *last;
+	t_node	*temp;
 
-    if (!stack || !new_node)
-        return ;
-    if (!*stack)
-    {
-        *stack = new_node;
-        new_node->prev = NULL;
-        new_node->next = NULL;
-        return ;
-    }
-    last = *stack;
-    while (last->next)
-        last = last->next;
-    last->next = new_node;
-    new_node->prev = last;
-    new_node->next = NULL;
-}
-
-
-
-// A SUPPRIMER //
-#include <stdio.h>
-#define RESET   "\033[0m"
-#define BOLD    "\033[1m"
-#define DIM     "\033[2m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-#define RED     "\033[31m"
-#define GRAY    "\033[90m"
-
-
-
-void	print_stacks(t_node *a, t_node *b)
-{
-	t_node	*tmp_a;
-	t_node	*tmp_b;
-
-	tmp_a = a;
-	tmp_b = b;
-
-	printf("\n" YELLOW "========= STACKS =========\n" RESET);
-	printf(YELLOW "   A        B\n" RESET);
-	printf(YELLOW "--------------------------\n" RESET);
-
-	while (tmp_a || tmp_b)
+	if (!head || !node)
+		return ;
+	if (!*head)
 	{
-		/* Stack A (Bleu) */
-		if (tmp_a)
-		{
-			printf(BLUE "%4d" RESET, tmp_a->value);
-			tmp_a = tmp_a->next;
-		}
-		else
-			printf("   .");
-
-		printf("    ");
-
-		/* Stack B (Rouge) */
-		if (tmp_b)
-		{
-			printf(RED "%4d" RESET, tmp_b->value);
-			tmp_b = tmp_b->next;
-		}
-		else
-			printf("   .");
-
-		printf("\n");
+		*head = node;
+		return ;
 	}
-
-	printf(YELLOW "--------------------------\n\n" RESET);
+	temp = *head;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = node;
+	node->prev = temp;
 }
 
+void	free_nodes(t_node **head)
+{
+	t_node	*temp;
 
+	if (!head)
+		return ;
+	while (*head)
+	{
+		temp = (*head)->next;
+		free(*head);
+		*head = temp;
+	}
+}

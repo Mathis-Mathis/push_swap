@@ -6,7 +6,7 @@
 #    By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 15:35:02 by mmousli           #+#    #+#              #
-#    Updated: 2026/01/28 10:40:50 by mmousli          ###   ########.fr        #
+#    Updated: 2026/02/24 08:30:14 by mmousli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,16 +22,21 @@ BUILD_DIR 	= build
 # **************************************************************************** #
 
 SRCS = \
-	$(SRC_DIR)/push_swap.c \
+	$(SRC_DIR)/main.c \
 	$(SRC_DIR)/error/error.c \
 	$(SRC_DIR)/node/node.c \
-	$(SRC_DIR)/logic/swap.c \
+	$(SRC_DIR)/utils/ft_atol.c \
 	$(SRC_DIR)/logic/push.c \
+	$(SRC_DIR)/logic/swap.c \
 	$(SRC_DIR)/logic/rotate.c \
+	$(SRC_DIR)/logic/reverse.c \
 	$(SRC_DIR)/parcing/parcing.c \
-	$(SRC_DIR)/parcing/check.c \
-	$(SRC_DIR)/utils/atoi.c \
-	$(SRC_DIR)/utils/split.c \
+	$(SRC_DIR)/utils/ft_split.c \
+	$(SRC_DIR)/utils/free_split.c \
+	$(SRC_DIR)/algo/low/low_sort.c \
+	$(SRC_DIR)/algo/low/sort_2_3.c \
+	$(SRC_DIR)/algo/low/sort_5.c \
+
 
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)

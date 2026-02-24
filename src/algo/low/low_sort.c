@@ -1,50 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   low_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/28 10:28:56 by mmousli           #+#    #+#             */
-/*   Updated: 2026/01/28 10:31:38 by mmousli          ###   ########.fr       */
+/*   Created: 2026/02/24 09:00:00 by mmousli           #+#    #+#             */
+/*   Updated: 2026/02/24 08:28:39 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+static int	stack_size(t_node *a)
 {
-	long	nb;
-	int		sign;
-	int		i;
+	int	i;
 
-	nb = 0;
-	sign = 1;
 	i = 0;
-
-	if (str[i] == '+' || str[i] == '-')
+	while (a)
 	{
-		if (str[i] == '-')
-			sign = -1;
 		i++;
+		a = a->next;
 	}
-
-	if (!str[i])
-		print_error();
-
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			print_error();
-
-		nb = nb * 10 + (str[i] - '0');
-
-		if ((nb * sign) > INT_MAX || (nb * sign) < INT_MIN)
-			print_error();
-
-		i++;
-	}
-
-	return ((int)(nb * sign));
+	return (i);
 }
 
+void	low_sort(t_node **a, t_node **b)
+{
+	int	size;
+
+	if (!a || !*a)
+		return ;
+	size = stack_size(*a);
+	if (size == 2)
+		sort_2(a);
+	else if (size == 3)
+		sort_3(a);
+	else if (size <= 5)
+		sort_5(a, b);
+}

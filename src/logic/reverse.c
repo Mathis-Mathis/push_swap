@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 07:24:15 by mmousli           #+#    #+#             */
-/*   Updated: 2026/02/24 07:26:28 by mmousli          ###   ########.fr       */
+/*   Created: 2026/02/24 07:28:59 by mmousli           #+#    #+#             */
+/*   Updated: 2026/02/24 07:29:09 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_node **stack_a, int print)
+void	reverse_rotate_a(t_node **stack_a, int print)
 {
 	t_node	*first;
 	t_node	*last;
@@ -23,16 +23,16 @@ void	rotate_a(t_node **stack_a, int print)
 	last = *stack_a;
 	while (last->next)
 		last = last->next;
-	*stack_a = first->next;
-	(*stack_a)->prev = NULL;
+	last->prev->next = NULL;
+	last->prev = NULL;
 	last->next = first;
 	first->prev = last;
-	first->next = NULL;
+	*stack_a = last;
 	if (print)
-		write(1, "ra\n", 3);
+		write(1, "rra\n", 4);
 }
 
-void	rotate_b(t_node **stack_b, int print)
+void	reverse_rotate_b(t_node **stack_b, int print)
 {
 	t_node	*first;
 	t_node	*last;
@@ -43,18 +43,18 @@ void	rotate_b(t_node **stack_b, int print)
 	last = *stack_b;
 	while (last->next)
 		last = last->next;
-	*stack_b = first->next;
-	(*stack_b)->prev = NULL;
+	last->prev->next = NULL;
+	last->prev = NULL;
 	last->next = first;
 	first->prev = last;
-	first->next = NULL;
+	*stack_b = last;
 	if (print)
-		write(1, "rb\n", 3);
+		write(1, "rrb\n", 4);
 }
 
-void	rotate_both(t_node **stack_a, t_node **stack_b)
+void	reverse_rotate_both(t_node **stack_a, t_node **stack_b)
 {
-	rotate_a(stack_a, 0);
-	rotate_b(stack_b, 0);
-	write(1, "rr\n", 3);
+	reverse_rotate_a(stack_a, 0);
+	reverse_rotate_b(stack_b, 0);
+	write(1, "rrr\n", 4);
 }

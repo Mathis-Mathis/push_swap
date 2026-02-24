@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   free_split.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmousli <mmousli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 07:07:37 by mmousli           #+#    #+#             */
-/*   Updated: 2026/02/24 07:19:19 by mmousli          ###   ########.fr       */
+/*   Created: 2026/02/24 07:51:48 by mmousli           #+#    #+#             */
+/*   Updated: 2026/02/24 07:57:10 by mmousli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_error(void)
+void	free_split(char **tab)
 {
-	write(2, "Error\n", 6);
-	exit(1);
+	int	i;
+
+	if (!tab)
+		return ;
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
 }
